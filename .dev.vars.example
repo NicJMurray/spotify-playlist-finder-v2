@@ -1,0 +1,3 @@
+# Copy to .dev.vars (excluded from git) and fill in your real credentials.
+GOOGLE_API_KEY=replace-with-your-google-api-key
+GOOGLE_CSE_ID=replace-with-your-google-cse-id

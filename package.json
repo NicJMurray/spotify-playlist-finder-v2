@@ -1,0 +1,12 @@
+{
+  "name": "spotify-platlist-finder-v2",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Prototype front-end for exploring Spotify playlists via a custom search API.",
+  "scripts": {
+    "start": "python3 -m http.server 5173"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
