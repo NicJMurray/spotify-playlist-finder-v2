@@ -1,12 +1,18 @@
 {
-  "name": "spotify-platlist-finder-v2",
+  "name": "spotify-playlist-finder-v2",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "description": "Prototype front-end for exploring Spotify playlists via a custom search API.",
   "scripts": {
-    "start": "python3 -m http.server 5173"
+    "start": "python3 -m http.server 5173",
+    "dev": "wrangler pages dev .",
+    "dev:homepage": "wrangler pages dev . --cwd homepage",
+    "dev:legacy": "wrangler pages dev . --cwd legacy-playlist",
+    "deploy:homepage": "wrangler pages deploy . --project-name homepage --cwd homepage",
+    "deploy:playlist": "wrangler pages deploy . --project-name spotify-playlist-finder-v2 --branch playlist --cwd legacy-playlist"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "wrangler": "^4.88.0"
+  }
 }
