@@ -120,10 +120,6 @@
         border-color: var(--ink);
       }
 
-      .summary {
-        padding: 58px 0 44px;
-      }
-
       h1,
       h2,
       h3,
@@ -132,65 +128,34 @@
       }
 
       h2,
-      .panel span:last-child,
       .card h3 {
         font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
         font-weight: 500;
         letter-spacing: 0;
       }
 
-      .panel {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1px;
-        overflow: hidden;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--line);
-        box-shadow: var(--shadow);
-      }
-
-      .panel a,
-      .panel div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 12px;
-        min-height: 118px;
-        padding: 20px;
-        background: rgba(255, 254, 249, 0.92);
-      }
-
-      .panel span:first-child {
-        color: var(--muted);
-        font-size: 0.78rem;
-        font-weight: 800;
-        text-transform: uppercase;
-      }
-
-      .panel span:last-child {
-        font-size: 1.35rem;
-        line-height: 1.1;
-      }
-
-      .section-head {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-        gap: 24px;
-        margin-bottom: 22px;
-      }
-
-      .section-head h2 {
-        margin-bottom: 0;
-        font-size: clamp(2.2rem, 6vw, 4.4rem);
-        line-height: 1;
-      }
-
       .grid {
         display: grid;
         grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 18px;
+      }
+
+      .project-section {
+        margin-top: 44px;
+      }
+
+      .project-section:first-child {
+        margin-top: 54px;
+      }
+
+      .project-section h2 {
+        margin: 0 0 14px;
+        color: var(--muted);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0;
+        text-transform: uppercase;
       }
 
       .card {
@@ -233,6 +198,7 @@
 
       .card--books,
       .card--music,
+      .card--playlists,
       .card--words {
         grid-column: span 3;
       }
@@ -245,6 +211,11 @@
       .card--music .card__icon,
       .card--music::before {
         background: var(--green);
+      }
+
+      .card--playlists .card__icon,
+      .card--playlists::before {
+        background: var(--gold);
       }
 
       .card--words .card__icon,
@@ -305,6 +276,7 @@
         .card,
         .card--books,
         .card--music,
+        .card--playlists,
         .card--words {
           grid-column: auto;
         }
@@ -313,7 +285,6 @@
           min-height: 210px;
         }
 
-        .section-head,
         footer {
           align-items: flex-start;
           flex-direction: column;
@@ -335,17 +306,8 @@
           gap: 12px 16px;
         }
 
-        .summary {
-          padding: 36px 0 34px;
-        }
-
-        .panel {
-          grid-template-columns: 1fr;
-        }
-
-        .panel a,
-        .panel div {
-          min-height: 76px;
+        .project-section:first-child {
+          margin-top: 36px;
         }
       }
     </style>
@@ -360,47 +322,16 @@
         <nav aria-label="Primary navigation">
           <a href="/books/">Books</a>
           <a href="/playlist/">Playlist Finder</a>
-          <a href="https://gutenberg.njmurray.com">Rare Words</a>
+          <a href="/playlists/">Playlists</a>
+          <a href="/gutenberg/">Rare Words</a>
           <a href="https://github.com/NicJMurray" rel="noopener" target="_blank">GitHub</a>
         </nav>
       </header>
 
       <main>
-        <section class="summary" aria-label="Site highlights">
-          <div class="panel" aria-label="Site highlights">
-            <a href="/books/">
-              <span>Reading List</span>
-              <span>124 books</span>
-            </a>
-            <a href="/playlist/">
-              <span>Music Search</span>
-              <span>Playlists</span>
-            </a>
-            <div>
-              <span>Updated</span>
-              <span id="updated-year">2026</span>
-            </div>
-          </div>
-        </section>
-
-        <section aria-labelledby="projects-title">
-          <div class="section-head">
-            <h2 id="projects-title">Projects</h2>
-          </div>
-
+        <section class="project-section" aria-labelledby="music-title">
+          <h2 id="music-title">Music</h2>
           <div class="grid">
-            <a class="card card--books" href="/books/">
-              <span class="card__arrow" aria-hidden="true">&#8594;</span>
-              <span class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 8H20" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <h3>Reading List</h3>
-              <p>Books I have read, imported from Goodreads and grouped by year and rating.</p>
-            </a>
-
             <a class="card card--music" href="/playlist/">
               <span class="card__arrow" aria-hidden="true">&#8594;</span>
               <span class="card__icon" aria-hidden="true">
@@ -414,7 +345,37 @@
               <p>Enter artists or tracks and find public playlists containing that combination.</p>
             </a>
 
-            <a class="card card--words" href="https://gutenberg.njmurray.com">
+            <a class="card card--playlists" href="/playlists/">
+              <span class="card__arrow" aria-hidden="true">&#8594;</span>
+              <span class="card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M5 5h14M5 12h14M5 19h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M9 8V3l8 2v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="7" cy="8" r="2" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+              </span>
+              <h3>Spotify Playlists</h3>
+              <p>My Spotify playlists.</p>
+            </a>
+          </div>
+        </section>
+
+        <section class="project-section" aria-labelledby="literature-title">
+          <h2 id="literature-title">Literature</h2>
+          <div class="grid">
+            <a class="card card--books" href="/books/">
+              <span class="card__arrow" aria-hidden="true">&#8594;</span>
+              <span class="card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 8H20" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <h3>Reading List</h3>
+              <p>Books I have read, imported from Goodreads and grouped by year and rating.</p>
+            </a>
+
+            <a class="card card--words" href="/gutenberg/">
               <span class="card__arrow" aria-hidden="true">&#8594;</span>
               <span class="card__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
@@ -437,7 +398,6 @@
     <script>
       const year = new Date().getFullYear();
       document.getElementById("year").textContent = year;
-      document.getElementById("updated-year").textContent = year;
     </script>
   </body>
 </html>
