@@ -55,10 +55,40 @@ a {
 .top-nav__inner {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 20px;
   max-width: 1040px;
   min-height: 58px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.mark {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  color: var(--surface);
+  background: var(--green);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+}
+
+.top-nav nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .top-nav__link {
@@ -66,11 +96,14 @@ a {
   font-size: 0.95rem;
   font-weight: 760;
   text-decoration: none;
+  border-bottom: 1px solid transparent;
 }
 
 .top-nav__link:hover,
-.top-nav__link:focus {
+.top-nav__link:focus,
+.top-nav__link[aria-current="page"] {
   color: var(--ink);
+  border-color: var(--ink);
 }
 
 main.app {
@@ -341,7 +374,15 @@ main.app {
 
 @media (max-width: 600px) {
   .top-nav__inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
     padding: 0 14px;
+  }
+
+  .top-nav nav {
+    flex-wrap: wrap;
+    gap: 10px 14px;
   }
 
   main.app {

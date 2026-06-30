@@ -1,0 +1,13 @@
+.git/
+.github/
+node_modules/
+.wrangler/
+.dev.vars
+.dev.vars.example
+.assetsignore
+*.log
+README.md
+DEPLOYMENT.md
+package.json
+package-lock.json
+wrangler.toml
