@@ -2,7 +2,7 @@
 
 Source for the standalone Spotify Playlist Finder at `https://playlist.njmurray.com`.
 
-This repo now contains only the finder app:
+This repo contains only the finder app:
 
 - `index.html`, `styles.css`, and `src/` render the browser UI.
 - `functions/api/playlists.js` is the Cloudflare Pages Function that queries Google Custom Search and returns Spotify playlist results.
@@ -10,7 +10,7 @@ This repo now contains only the finder app:
 
 The homepage and static Spotify playlist showcase live in separate repos.
 
-## Local Development
+## Local development
 
 ```sh
 npm install
@@ -24,10 +24,17 @@ GOOGLE_API_KEY
 GOOGLE_CSE_ID
 ```
 
-## Deploy
+## Deployment
 
-```sh
-npm run deploy
+This repo should be connected directly to Cloudflare Pages using Cloudflare's Git integration.
+
+Pushing to `main` automatically deploys the app. No GitHub Actions workflow or Cloudflare API secrets are needed for the Pages deployment once it is connected in Cloudflare.
+
+The Cloudflare Pages project still needs these environment variables/secrets for the API function:
+
+```text
+GOOGLE_API_KEY
+GOOGLE_CSE_ID
 ```
 
-Pushing to `main` also deploys through GitHub Actions. See [DEPLOYMENT.md](DEPLOYMENT.md) for the canonical URL, Pages project name, and required secrets.
+See [DEPLOYMENT.md](DEPLOYMENT.md) for the deployment summary.
