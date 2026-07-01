@@ -6,8 +6,7 @@
   "description": "Spotify Playlist Finder app and Cloudflare Pages Function.",
   "scripts": {
     "start": "python3 -m http.server 5173",
-    "dev": "wrangler pages dev .",
-    "deploy": "wrangler pages deploy . --project-name spotify-playlist-finder-v2 --branch main"
+    "dev": "wrangler pages dev ."
   },
   "devDependencies": {
     "wrangler": "^4.88.0"
