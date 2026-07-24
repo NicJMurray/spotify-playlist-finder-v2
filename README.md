@@ -1,3 +1,5 @@
+![Spotify Playlist Finder](.github/readme-banner.svg)
+
 # Spotify Playlist Finder
 
 Search utility at `playlist.njmurray.com` for finding public Spotify playlists that contain a particular combination of artists, tracks, or other terms.
