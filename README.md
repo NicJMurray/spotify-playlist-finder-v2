@@ -180,7 +180,7 @@ Run `npm ci`, `npm run build`, and `npm run check:functions` to install locked d
 
 The build copies only `index.html`, `styles.css`, and `src/` into `dist/`. The root `functions/` directory is compiled separately by Wrangler and is never a public source directory.
 
-Pushing `main` runs `.github/workflows/deploy.yml` to publish to the existing Cloudflare Pages project `spotify-playlist-finder-v2`. **Automatic publication remains pending credentials and a successful deployment verification.** The existing project's encrypted Google settings must remain in Cloudflare. See `DEPLOYMENT.md` for the required CI credentials and verification steps.
+Pushing `main` runs `.github/workflows/deploy.yml` to publish to the existing Cloudflare Pages project `spotify-playlist-finder-v2`. Automatic publication was verified with a successful production deployment on 23 October 2026. The existing project's encrypted Google settings must remain in Cloudflare. See `DEPLOYMENT.md` for the required CI credentials and verification steps.
 
 ## File map
 

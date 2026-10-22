@@ -13,9 +13,9 @@
 
 ## Publishing status
 
-The push-triggered pipeline is **configured, awaiting successful credential validation and production verification**. It installs the locked npm dependencies, stages public assets, compiles the Functions, and deploys the exact main-branch commit to the existing Pages project.
+The pipeline was verified on 23 October 2026 with a successful GitHub Actions deployment to production. It installs the locked npm dependencies, stages public assets, compiles the Functions, and deploys the exact main-branch commit to the existing Pages project.
 
-The workflow targets the known Cloudflare account directly. Add `CLOUDFLARE_API_TOKEN` as a GitHub repository secret with Cloudflare Pages Edit permission for that account. Missing credentials cause an explicit failed run rather than a successful skipped deployment.
+The workflow targets the known Cloudflare account directly. `CLOUDFLARE_API_TOKEN` is stored as an encrypted GitHub repository secret with Cloudflare Pages Edit permission for that account. Missing credentials cause an explicit failed run rather than a successful skipped deployment.
 
 This project currently uses Direct Upload. GitHub Actions provides automatic publication while retaining the existing project and its encrypted settings. Do not replace it with another Pages project as a deployment workaround.
 
