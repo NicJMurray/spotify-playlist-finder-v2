@@ -174,6 +174,14 @@ The allowed set currently covers:
 
 `GOOGLE_API_KEY` and `GOOGLE_CSE_ID` are read only inside the Pages Function. They are never included in the static JavaScript bundle or returned to the browser.
 
+## Development and publishing
+
+Run `npm ci`, `npm run build`, and `npm run check:functions` to install locked dependencies, stage public browser files, and compile the Pages Functions locally. `npm run dev` serves the staged files with the Function; local credentials belong in ignored `.dev.vars`.
+
+The build copies only `index.html`, `styles.css`, and `src/` into `dist/`. The root `functions/` directory is compiled separately by Wrangler and is never a public source directory.
+
+Pushing `main` runs `.github/workflows/deploy.yml` to publish to the existing Cloudflare Pages project `spotify-playlist-finder-v2`. **Automatic publication remains pending credentials and a successful deployment verification.** The existing project's encrypted Google settings must remain in Cloudflare. See `DEPLOYMENT.md` for the required CI credentials and verification steps.
+
 ## File map
 
 | File | Responsibility |
@@ -185,6 +193,8 @@ The allowed set currently covers:
 | `functions/api/playlists.js` | HTTP endpoint, parameter limits, CORS, Google request, cache policy, and response shaping. |
 | `functions/_lib/spotify.js` | Server-side canonicalisation, validation, and de-duplication. |
 | `wrangler.toml` | Cloudflare Pages output and compatibility configuration. |
+| `scripts/build.mjs` | Stages the allowlisted public files in ignored `dist/`. |
+| `.github/workflows/deploy.yml` | Publishes checked main-branch commits to the existing Pages project. |
 
 ## Change map
 

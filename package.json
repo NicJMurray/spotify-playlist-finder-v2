@@ -5,8 +5,10 @@
   "type": "module",
   "description": "Spotify Playlist Finder app and Cloudflare Pages Function.",
   "scripts": {
-    "start": "python3 -m http.server 5173",
-    "dev": "wrangler pages dev ."
+    "start": "python3 -m http.server 5173 --directory dist",
+    "build": "node scripts/build.mjs",
+    "check:functions": "wrangler pages functions build functions --outdir=.wrangler/functions",
+    "dev": "npm run build && wrangler pages dev dist"
   },
   "devDependencies": {
     "wrangler": "^4.88.0"
